@@ -1,0 +1,119 @@
+{% extends "stockmarketanalysis/base.html" %}
+{%load static%}
+{% block content %}
+  <div class="slider">
+    <div id="about-slider">
+      <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators visible-xs">
+          <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-slider" data-slide-to="1"></li>
+          <li data-target="#carousel-slider" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="{%static 'img/slide.jpg'%}" class="img-responsive" alt="">
+            <div class="carousel-caption">
+              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
+                <h2><span>We shows all the Data-Analysis report</span></h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="{%static 'img/slide2.jpg'%}" class="img-responsive" alt="">
+            <div class="carousel-caption">
+              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="1.0s">
+                <h2>Text Required..</h2>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{%static 'img/slide3.jpg'%}" class="img-responsive" alt="">
+            <div class="carousel-caption">
+              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
+                <h2>Text Required..</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
+					<i class="fa fa-angle-left"></i>
+				</a>
+
+        <a class=" right carousel-control hidden-xs" href="#carousel-slider" data-slide="next">
+					<i class="fa fa-angle-right"></i>
+				</a>
+      </div>
+      <!--/#carousel-slider-->
+    </div>
+    <!--/#about-slider-->
+  </div>
+  <!--/#slider-->
+  <div class="gallery">
+    <div class="text-center">
+      <h2>Companies We Support</h2>
+    </div>
+    <div class="container">
+      <div class="col-md-4">
+        <figure class="effect-marley">
+          <img src="{%static 'img/apple.jpg'%}" alt="" class="img-responsive" />
+          <figcaption>
+            <h4>Apple</h4>
+            <p>We provide all the stock-market report of apple.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure class="effect-marley">
+          <img src="{%static 'img/amazon.png'%}" alt="" class="img-responsive" />
+          <figcaption>
+            <h4>Amazon</h4>
+            <p>We provide all the stock-market report of amazon.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure class="effect-marley">
+          <img src="{%static 'img/google.gif'%}" alt="" class="img-responsive" />
+          <figcaption>
+            <h4>Google</h4>
+            <p>We provide all the stock-market report of google.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="col-md-4">
+        <figure class="effect-marley">
+          <img src="{%static 'img/microsoft.jpeg'%}" alt="" class="img-responsive" />
+          <figcaption>
+            <h4>Microsoft</h4>
+            <p>We provide all the stock-market report of Microsoft.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure class="effect-marley">
+          <img src="{%static 'img/facebook.jpg'%}" alt="" class="img-responsive" />
+          <figcaption>
+            <h4>Facebook</h4>
+            <p>We provide all the stock-market report of facebook.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure class="effect-marley">
+          <img src="{%static 'img/Samsung.jpg'%}" alt="" class="img-responsive" />
+          <figcaption>
+            <h4>Samsung</h4>
+            <p>We provide all the stock-market report of samsung.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+{% endblock %}

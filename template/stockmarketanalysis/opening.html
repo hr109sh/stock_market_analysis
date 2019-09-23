@@ -1,0 +1,177 @@
+{% extends "stockmarketanalysis/base.html" %}
+{%load static%}
+{% block content %}
+<section id="about-us">
+    <div class="container">
+      <div class="team">
+        <div class="text-center wow fadeInDown">
+          <h2>Opening Price</h2>
+        </div>
+
+        <div class="row clearfix">
+          <div class="col-md-4 col-sm-6">
+            <div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+              <div class="media">
+                <div class="media-body">
+                  <canvas id="AAPL-Open"></canvas>
+                </div>
+              </div>
+              <!--/.media -->
+            </div>
+          </div>
+          <!--/.col-lg-4 -->
+
+          <div class="col-md-4 col-sm-6 col-md-offset-2">
+            <div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+              <div class="media">
+                <div class="media-body">
+                  <canvas id="GOOG-Open"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.col-lg-4 -->
+        </div>
+        <!--/.row -->
+        <div class="row team-bar">
+          <div class="first-one-arrow hidden-xs">
+            <hr>
+          </div>
+          <div class="first-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-up"></i>
+          </div>
+          <div class="second-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-down"></i>
+          </div>
+          <div class="third-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-up"></i>
+          </div>
+          <div class="fourth-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-down"></i>
+          </div>
+        </div>
+        <!--skill_border-->
+
+        <div class="row clearfix">
+          <div class="col-md-4 col-sm-6 col-md-offset-2">
+            <div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+              <div class="media">
+                <div class="media-body">
+                  <canvas id="AMZN-Open"></canvas>
+                </div>
+              </div>
+              <!--/.media -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-md-offset-2">
+            <div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+              <div class="media">
+                <div class="media-body">
+                  <canvas id="MSFT-Open"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+   <script type="text/javascript">
+   var AAPL_Open = eval('{{AAPL_Open}}')
+   var GOOG_Open= eval('{{GOOG_Open}}')
+   var MSFT_Open = eval('{{MSFT_Open}}')
+   var AMZN_Open = eval('{{AMZN_Open}}')
+
+   new Chart(document.getElementById("AAPL-Open"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Jan", "Feb","March", "April","May",'June','July','Aug','Sep','Oct','Nov','Dec'],
+      datasets: [
+        {
+          label: "Apple Open",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"
+        ,"#3e95cd", "#8e5ea2"],
+          data:AAPL_Open
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Apple Open'
+      }
+    }
+  });
+
+
+  new Chart(document.getElementById("GOOG-Open"), {
+   type: 'doughnut',
+   data: {
+     labels: ["Jan", "Feb","March", "April","May",'June','July','Aug','Sep','Oct','Nov','Dec'],
+     datasets: [
+       {
+         label: "Google Open",
+         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"
+       ,"#3e95cd", "#8e5ea2"],
+         data:GOOG_Open
+       }
+     ]
+   },
+   options: {
+     legend: { display: false },
+     title: {
+       display: true,
+       text: 'Google Open'
+     }
+   }
+  });
+
+
+  new Chart(document.getElementById("MSFT-Open"), {
+   type: 'doughnut',
+   data: {
+     labels: ["Jan", "Feb","March", "April","May",'June','July','Aug','Sep','Oct','Nov','Dec'],
+     datasets: [
+       {
+         label: "Microsoft Open",
+         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"
+       ,"#3e95cd", "#8e5ea2"],
+         data:MSFT_Open
+       }
+     ]
+   },
+   options: {
+     legend: { display: false },
+     title: {
+       display: true,
+       text: 'Microsoft Open'
+     }
+   }
+  });
+
+  new Chart(document.getElementById("AMZN-Open"), {
+   type: 'doughnut',
+   data: {
+     labels: ["Jan", "Feb","March", "April","May",'June','July','Aug','Sep','Oct','Nov','Dec'],
+     datasets: [
+       {
+         label: "Amazon Open",
+         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"
+       ,"#3e95cd", "#8e5ea2"],
+         data:AMZN_Open
+       }
+     ]
+   },
+   options: {
+     legend: { display: false },
+     title: {
+       display: true,
+       text: 'Amazon Open'
+     }
+   }
+  });
+   </script>
+{% endblock %}

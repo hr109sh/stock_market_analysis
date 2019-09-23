@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>StockMarket Analysis</title>
+
+  <!-- Bootstrap -->
+  <link href="{%static 'css/bootstrap.min.css'%}" rel="stylesheet">
+  <link rel="stylesheet" href="{%static 'css/font-awesome.min.css'%}">
+  <link rel="stylesheet" href="{%static 'css/animate.css'%}">
+  <link href="{%static 'css/animate.min.css'%}" rel="stylesheet">
+  <link href="{%static 'css/style.css'%}" rel="stylesheet" />
+<style>
+#logout_btn:hover{
+  background-color: red!important;
+  color:white;
+}
+</style>
+</head>
+
+<body>
+  <header id="header">
+    <nav class="navbar navbar-default navbar-static-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+          <div class="navbar-brand">
+            <a href="{%url 'stockmarketanalysis:index'%}"><h1>Stock Market Analysis</h1></a>
+          </div>
+        </div>
+        <div class="navbar-collapse collapse">
+          <div class="menu">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation"><a id="stockmarketanalysis" href="{%url 'stockmarketanalysis:index'%}">Home</a></li>
+              <li role="presentation"><a id="opening" href="{%url 'stockmarketanalysis:opening'%}">Opening</a></li>
+              <li role="presentation"><a id="volume" href="{%url 'stockmarketanalysis:volume'%}">Volume</a></li>
+              <li role="presentation"><a id="adjacent_close" href="{%url 'stockmarketanalysis:adjacent_close'%}">Adjacent Close</a></li>
+              <li role="presentation"><a id="closing" href="{%url 'stockmarketanalysis:closing'%}">Closing</a></li>
+              <li role="presentation"><a id="high" href="{%url 'stockmarketanalysis:high'%}">High</a></li>
+              <!-- <li role="presentation"><a href="{%url 'stockmarketanalysis:low'%}">Low</a></li> -->
+              <li role="presentation"><a id="contact" href="{%url 'stockmarketanalysis:contact'%}">Contact</a></li>
+              <!-- <li><a id="logout_btn" href="../logout">Logout</a></li> -->
+              <li>
+              <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: none;margin-top: 23px;">
+                    Logout
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-align: center;margin-top: 35px;">
+                      <a class="dropdown-item" href="../logout">Logout</a><br>
+                      <a class="dropdown-item" href="../admin">Admin</a>
+                  </div>
+              </div>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--/.container-->
+    </nav>
+    <!--/nav-->
+  </header>
+  <!--/header-->
+{% block content %}
+{% endblock %}
+  <footer>
+    <div class="container">
+      <div class="col-md-5 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <h4>About Us</h4>
+        <p>This website shows the stock-market report for verious company.</p>
+        <div class="contact-info">
+          <ul>
+            <li><i class="fa fa-home fa"></i>&nbsp&nbspMarathalli Bangalore India</li>
+            <li><i class="fa fa-phone fa"></i> +91-9851-6717-51</li>
+            <li><i class="fa fa-envelope fa"></i> hr109sh@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+      </div>
+
+      <div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">
+        <div class="">
+          <h4>Stock-Market Registration</h4>
+          <p>Subscribe today to receive the latest Stock-Market news via email. You may unsubscribe from this service at any time</p>
+          <div class="btn-gamp">
+            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter Email">
+          </div>
+          <div class="btn-gamp">
+            <a type="submit" class="btn btn-default">Subscribe</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="sub-footer">
+    <div class="container">
+      <div class="social-icon">
+        <div class="col-md-4">
+          <ul class="social-network">
+            <li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-md-offset-4">
+        <div class="copyright">
+          &copy; All Rights Reserved.
+          <div class="credits">
+            Designed by Me
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{%static 'js/jquery.js'%}"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{%static 'js/bootstrap.min.js'%}"></script>
+  <script src="{static 'js/wow.min.js'%}"></script>
+  <script>
+    $(document).ready(function(){
+        var location = window.location.pathname;
+        var array_data = location.split('/');
+        var listItems = $("a");
+        listItems.each(function() {
+          var selected_id = $(this).attr('id');
+          if(selected_id === array_data[1]){
+            $(this).addClass('active');
+          }
+        });
+      });
+  </script>
+</body>
+
+</html>

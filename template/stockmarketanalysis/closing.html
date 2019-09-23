@@ -1,0 +1,177 @@
+{% extends "stockmarketanalysis/base.html" %}
+{%load static%}
+{% block content %}
+<section id="about-us">
+    <div class="container">
+      <div class="team">
+        <div class="text-center wow fadeInDown">
+          <h2>Closing Price</h2>
+        </div>
+
+        <div class="row clearfix">
+          <div class="col-md-4 col-sm-6">
+            <div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+              <div class="media">
+                <div class="media-body">
+                  <canvas id="AAPL-close"></canvas>
+                </div>
+              </div>
+              <!--/.media -->
+            </div>
+          </div>
+          <!--/.col-lg-4 -->
+
+          <div class="col-md-4 col-sm-6 col-md-offset-2">
+            <div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+              <div class="media">
+                <div class="media-body">
+                  <canvas id="GOOG-close"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/.col-lg-4 -->
+        </div>
+        <!--/.row -->
+        <div class="row team-bar">
+          <div class="first-one-arrow hidden-xs">
+            <hr>
+          </div>
+          <div class="first-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-up"></i>
+          </div>
+          <div class="second-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-down"></i>
+          </div>
+          <div class="third-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-up"></i>
+          </div>
+          <div class="fourth-arrow hidden-xs">
+            <hr> <i class="fa fa-angle-down"></i>
+          </div>
+        </div>
+        <!--skill_border-->
+
+        <div class="row clearfix">
+          <div class="col-md-4 col-sm-6 col-md-offset-2">
+            <div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+              <div class="media">
+                <div class="media-body">
+                  <canvas id="AMZN-close"></canvas>
+                </div>
+              </div>
+              <!--/.media -->
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-md-offset-2">
+            <div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+              <div class="media">
+                <div class="media-body">
+                  <canvas id="MSFT-close"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/.row-->
+      </div>
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+   <script type="text/javascript">
+   var AAPL_Close = eval('{{AAPL_Close}}')
+   var GOOG_Close= eval('{{GOOG_Close}}')
+   var MSFT_Close = eval('{{MSFT_Close}}')
+   var AMZN_Close = eval('{{AMZN_Close}}')
+
+   new Chart(document.getElementById("AAPL-close"), {
+    type: 'pie',
+    data: {
+      labels: ["Jan", "Feb","March", "April","May",'June','July','Aug','Sep','Oct','Nov','Dec'],
+      datasets: [
+        {
+          label: "Apple Closing price",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"
+        ,"#3e95cd", "#8e5ea2"],
+          data:AAPL_Close
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Apple Closing Price'
+      }
+    }
+  });
+
+
+  new Chart(document.getElementById("GOOG-close"), {
+   type: 'pie',
+   data: {
+     labels: ["Jan", "Feb","March", "April","May",'June','July','Aug','Sep','Oct','Nov','Dec'],
+     datasets: [
+       {
+         label: "Google Closing Price",
+         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"
+       ,"#3e95cd", "#8e5ea2"],
+         data:GOOG_Close
+       }
+     ]
+   },
+   options: {
+     legend: { display: false },
+     title: {
+       display: true,
+       text: 'Google Closing Price'
+     }
+   }
+  });
+
+
+  new Chart(document.getElementById("MSFT-close"), {
+   type: 'pie',
+   data: {
+     labels: ["Jan", "Feb","March", "April","May",'June','July','Aug','Sep','Oct','Nov','Dec'],
+     datasets: [
+       {
+         label: "Microsoft Closing Price",
+         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"
+       ,"#3e95cd", "#8e5ea2"],
+         data:MSFT_Close
+       }
+     ]
+   },
+   options: {
+     legend: { display: false },
+     title: {
+       display: true,
+       text: 'Microsoft Closing Price'
+     }
+   }
+  });
+
+  new Chart(document.getElementById("AMZN-close"), {
+   type: 'pie',
+   data: {
+     labels: ["Jan", "Feb","March", "April","May",'June','July','Aug','Sep','Oct','Nov','Dec'],
+     datasets: [
+       {
+         label: "Amazon Closing Price",
+         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"
+       ,"#3e95cd", "#8e5ea2"],
+         data:AMZN_Close
+       }
+     ]
+   },
+   options: {
+     legend: { display: false },
+     title: {
+       display: true,
+       text: 'Amazon Closing Price'
+     }
+   }
+  });
+   </script>
+{% endblock %}

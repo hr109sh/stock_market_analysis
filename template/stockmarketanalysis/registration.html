@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<link href="{%static 'css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title></title>
+		<style>
+		html,
+body {
+  height: 100%;
+}
+
+a{
+  text-decoration:none;
+  color:white;
+}
+a:hover{
+    text-decoration:none;
+  color:red;
+}
+#text{
+      float: right;
+    color: whitesmoke;
+    font-family: sans-serif;
+    margin-right: 53px;
+    font-weight: 28px;
+    font-size: 26px;
+        margin-bottom: 37px;
+}
+body{
+    background-color: #525252;
+}
+.centered-form{
+  margin-top: 60px;
+}
+
+.centered-form .panel{
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+.input-sm {
+    height: 47px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+input[type=submit].btn-block, input[type=reset].btn-block, input[type=button].btn-block {
+    width: 100%;
+    height: 56px;
+    margin-top: 10px;
+}
+.col-md-offset-4 {
+    margin-left: 20.333333%;
+    margin-top: 52px;
+}
+.alert-css {
+    border-color: #d6e9c6;
+    width: 63%;
+    margin-left: 241px;
+    position: relative;
+    top: 97px;
+    text-align: center;
+    font-size: 17px;
+    font-family: monospace;
+}
+
+		</style>
+	</head>
+	<body style="background-color: #80808040;">
+    <nav class="navbar navbar-dark bg-dark" style="background-color:lightslategrey;">
+  <span class="navbar-brand mb-0 h1" id="text"><a href="../login/">Login</a></span>
+</nav>
+<div class="container">
+  <div class="alert alert-success" role="alert" id="alert-panel" style="display:none;">
+</div>
+        <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+          <div class="panel panel-default" style="width: 200%;height: 348px;">
+            <div class="panel-heading">
+              <h3 class="panel-title">Please sign up for Stock Market Analysis</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+                    </div>
+                  </div>
+                </div>
+                
+                <input type="submit" value="Register" class="btn btn-info btn-block" onclick="submit_registration()">
+            </div>
+	</body>
+  <script>
+    function submit_registration(){
+      var first_name = $("#first_name").val();
+      var last_name = $("#last_name").val();
+      var email = $("#email").val();
+      var password = $("#password").val();
+      var cpassword = $("#password_confirmation").val();
+      if (first_name && last_name && email && password && cpassword){
+        if(password == cpassword){
+          $.ajax({
+        url: '../user_registration',
+        data: {
+          'first_name': first_name,
+          'last_name': last_name,
+          'email': email,
+          'password': password,
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.message) {
+            $("#alert-panel").removeClass("alert alert-danger");
+            $("#alert-panel").addClass("alert alert-success");
+            $("#alert-panel").addClass("alert-css");
+            $("#alert-panel").text('Thankyou For Registring with Us Please Login...');
+            $("#alert-panel").css('display','block');
+          }
+
+          else{
+              $("#alert-panel").removeClass("alert alert-success");
+              $("#alert-panel").addClass("alert alert-danger");
+              $("#alert-panel").addClass("alert-css");
+              $("#alert-panel").text('Email Already Exits...');
+              $("#alert-panel").css('display','block');
+          }
+        }
+      });
+    }
+    else{
+        $("#alert-panel").removeClass("alert alert-success");
+        $("#alert-panel").addClass("alert alert-danger");
+        $("#alert-panel").addClass("alert-css");
+        $("#alert-panel").text('Password and Confirm Password Should be Same');
+        $("#alert-panel").css('display','block');
+    }
+        
+      }
+    else{
+      $("#alert-panel").removeClass("alert alert-success");
+      $("#alert-panel").addClass("alert alert-danger");
+      $("#alert-panel").addClass("alert-css");
+      $("#alert-panel").text('Please Fill all the field');
+      $("#alert-panel").css('display','block');
+    }
+    }
+  </script>
+</html>
